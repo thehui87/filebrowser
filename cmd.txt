@@ -1,0 +1,9 @@
+npm init
+npm install react react-dom
+npm install --save-dev webpack webpack-dev-server webpack-cli html-webpack-plugin
+npm install --save-dev @babel/core @babel/preset-env @babel/preset-react babel-loader
+npm install antd
+
+npm install webpack-dev-server --save-dev
+
+npm install --save-dev --save-exact prettier
