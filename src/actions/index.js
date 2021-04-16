@@ -31,14 +31,13 @@ export const dataLoad = (data) => {
     counter: 0,
   };
 
-  // const flatArray = data;
-
   state.active = {
     name: "root",
     type: "folder",
     children: [...data],
     counter: 0,
   };
+  const flatArray = breadthFirst(state.active);
   // breadcrumb
   addCrumb(state.active.name);
   return {
@@ -161,23 +160,26 @@ export const newFolder = (name) => {
   };
 };
 
-export const deleteFolder = (name) => {
+export const deleteFolder = (payload) => {
   const state = store.getState();
   let data = state.data;
-
   var filteredData = state.active.children.filter(function (d) {
-    return d.name == name;
+    return d.name == payload.name && d.counter == payload.counter;
   });
 
-  if (filteredData.length == 0) {
-    state.active.children.push({
-      type: "folder",
-      name: name,
-      children: [],
-      parent: state.active.name,
-    });
-  } else {
-    alert("Item with similar name already exists!");
+  var itemIndex = 0;
+  for (var i = 0; i < state.active.children.length; i++) {
+    if (
+      state.active.children[i].name == payload.name &&
+      state.active.children[i].counter == payload.counter
+    ) {
+      itemIndex = i;
+      break;
+    }
+  }
+
+  if (filteredData.length) {
+    state.active.children.splice(itemIndex, 1);
   }
 
   return {

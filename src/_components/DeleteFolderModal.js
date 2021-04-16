@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Modal, Button, Input } from "antd";
 import { useSelector, useDispatch } from "react-redux";
+import { deleteFolder } from "../actions";
 
 const DeleteFolderModal = (props) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -13,17 +14,23 @@ const DeleteFolderModal = (props) => {
   };
 
   const handleOk = () => {
+    dispatch(
+      deleteFolder({
+        name: modalVisibility.name,
+        counter: modalVisibility.counter,
+      })
+    );
     setIsModalVisible(false);
-    dispatch({ type: "HIDEMODAL" });
+    // dispatch({ type: "HIDEMODAL" });
   };
 
   const handleCancel = () => {
     setIsModalVisible(false);
-    dispatch({ type: "HIDEMODAL" });
+    // dispatch({ type: "HIDEMODAL" });
   };
 
   useEffect(() => {
-    modalVisibility ? showModal() : handleCancel();
+    modalVisibility.state ? showModal() : handleCancel();
   }, [modalVisibility]);
 
   return (

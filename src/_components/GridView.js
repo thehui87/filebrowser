@@ -32,15 +32,17 @@ const ListView = (props) => {
             )}
             <div>{item.name}</div>
 
-            {/* <DeleteFilled
+            <DeleteFilled
               className="icon-offset grid-icon-delete"
               style={{ fontSize: "25px", cursor: "pointer" }}
               onClick={(e) => {
                 e.stopPropagation();
-                // console.log("Bin Click");
-                dispatch({ type: "SHOWMODAL" });
+                dispatch({
+                  type: "SHOWMODAL",
+                  payload: { name: item.name, counter: item.counter },
+                });
               }}
-            /> */}
+            />
           </div>
         );
       })}

@@ -1,9 +1,9 @@
-function modalReducer(state = false, action) {
+function modalReducer(state = { state: false, name: "", counter: "" }, action) {
   switch (action.type) {
     case "SHOWMODAL":
-      return true;
+      return { ...action.payload, state: true };
     case "HIDEMODAL":
-      return false;
+      return { state: false, name: "", counter: "" };
     default:
       return state;
   }

@@ -12,17 +12,6 @@ const BreadCrumb = () => {
   let tempCounter = useSelector((state) => state.counter);
 
   const getData = () => {
-    // let tempArray = [];
-    // var tempObject = { ...allData.data[0] };
-    // tempArray.push({ name: "root", counter: 0 });
-    // for (var i = 0; i < allData.counter; i++) {
-    //   if (tempObject.hasOwnProperty("children")) {
-    //     tempArray.push({ name: tempObject.name, counter: i });
-    //     tempObject = { ...tempObject.children[0] };
-    //   } else {
-    //     break;
-    //   }
-    // }
     setCrumbArray(crumbArrayTemp);
   };
 
