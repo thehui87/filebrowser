@@ -61,16 +61,19 @@ const Nav = () => {
   );
   return (
     <div className="ant-row row-padding">
-      <div className="ant-col ant-col-8">
+      <div className="ant-col ant-col-xs-20 ant-col-md-8">
         <Input placeholder="search" prefix={<SearchOutlined />} />
       </div>
-      <div className="ant-col ant-col-16">
-        <div className="" style={{ float: "left", marginLeft: "10px" }}>
-          {activeState.children.length
-            ? `${activeState.children.length} item(s) `
-            : ""}
-        </div>
-        <div className="" style={{ float: "right" }}>
+      <div
+        className="ant-col ant-col-xs-4 ant-col-md-2 "
+        style={{ paddingLeft: "10px" }}
+      >
+        {activeState.children.length
+          ? `${activeState.children.length} item(s) `
+          : ""}
+      </div>
+      <div className="ant-col ant-col-xs-24 ant-col-md-14">
+        <div className="pull-right">
           <div
             className="create-new-folder custom-icons-offset "
             style={{ display: "inline-block", marginRight: "20px" }}

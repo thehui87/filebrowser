@@ -13,7 +13,7 @@ const ListView = (props) => {
         return (
           <div
             key={index}
-            className="ant-col ant-col-4 grid-icon"
+            className="ant-col ant-col-xs-4 ant-col-xs-8 grid-icon"
             style={{ textAlign: "center" }}
             onClick={() => {
               item.type == "folder" ? dispatch(goforward(item.name)) : "";
@@ -34,7 +34,7 @@ const ListView = (props) => {
 
             <DeleteFilled
               className="icon-offset grid-icon-delete"
-              style={{ fontSize: "25px", cursor: "pointer" }}
+              style={{ height: "25px", fontSize: "25px", cursor: "pointer" }}
               type="primary"
               onClick={(e) => {
                 e.stopPropagation();

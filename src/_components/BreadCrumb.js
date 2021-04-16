@@ -29,7 +29,7 @@ const BreadCrumb = () => {
               onClick={() => dispatch(goBackCustom({ name: item, idx: index }))}
             >
               {index == 0 ? (
-                <FolderFilled style={{ bottom: "3px" }} />
+                <FolderFilled style={{ bottom: "3px", position: "relative" }} />
               ) : (
                 <span>/</span>
               )}

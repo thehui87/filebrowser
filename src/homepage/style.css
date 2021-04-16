@@ -26,6 +26,7 @@
 .grid-icon {
   border-radius: 10px;
   cursor: pointer;
+  min-width: 100px;
 }
 .grid-icon > .grid-icon-delete {
   position: absolute;

@@ -19,7 +19,7 @@ const ListView = (props) => {
               item.type == "folder" ? dispatch(goforward(item.name)) : "";
             }}
           >
-            <div className="ant-col ant-col-16">
+            <div className="ant-col ant-col-xs-22 ant-col-md-16">
               {item.type == "folder" ? (
                 <FolderFilled
                   className="icon-offset"
@@ -33,10 +33,10 @@ const ListView = (props) => {
               )}
               <span>{item.name}</span>
             </div>
-            <div className="ant-col ant-col-6">
+            <div className="ant-col ant-col-xs-0 ant-col-md-6">
               {Moment().format("MMMM Do YYYY, h:mm:ss a")}
             </div>
-            <div className="ant-col ant-col-2">
+            <div className="ant-col ant-col-xs-2 ant-col-xs-2">
               <DeleteFilled
                 className="icon-offset"
                 style={{ fontSize: "25px", cursor: "pointer" }}

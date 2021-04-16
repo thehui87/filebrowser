@@ -49,7 +49,7 @@ function HomePage({ history }) {
       <div style={{ display: "flex" }}>
         <EnterOutlined
           style={{
-            fontSize: "25px",
+            fontSize: "20px",
             marginRight: "10px",
             transform: "rotateZ(90deg) scaleY(-1)",
           }}
