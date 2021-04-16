@@ -35,6 +35,7 @@ const ListView = (props) => {
             <DeleteFilled
               className="icon-offset grid-icon-delete"
               style={{ fontSize: "25px", cursor: "pointer" }}
+              type="primary"
               onClick={(e) => {
                 e.stopPropagation();
                 dispatch({

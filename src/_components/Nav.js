@@ -14,6 +14,7 @@ import {
 const Nav = () => {
   const dispatch = useDispatch();
   const activeState = useSelector((state) => state.active);
+  const viewType = useSelector((state) => state.view);
 
   const inputRef = useRef(null);
 
@@ -70,6 +71,17 @@ const Nav = () => {
             : ""}
         </div>
         <div className="" style={{ float: "right" }}>
+          <div
+            className="create-new-folder custom-icons-offset "
+            style={{ display: "inline-block", marginRight: "20px" }}
+            onClick={showModal}
+          >
+            <FolderAddFilled
+              className="icon-offset"
+              style={{ fontSize: "25px", cursor: "pointer" }}
+            />
+            <span>Create Folder</span>
+          </div>
           <Dropdown overlay={actionMenu} trigger={["click"]}>
             <a
               className="ant-dropdown-link"
@@ -79,12 +91,18 @@ const Nav = () => {
             </a>
           </Dropdown>
           <UnorderedListOutlined
-            className="icon-offset custom-icons-offset "
+            className={
+              "icon-offset custom-icons-offset " +
+              (viewType == "list" ? "active-icon" : "")
+            }
             style={{ fontSize: "25px", cursor: "pointer" }}
             onClick={() => dispatch(viewlist())}
           />
           <AppstoreFilled
-            className="icon-offset custom-icons-offset "
+            className={
+              "icon-offset custom-icons-offset " +
+              (viewType == "grid" ? "active-icon" : "")
+            }
             style={{ fontSize: "25px", cursor: "pointer" }}
             onClick={() => dispatch(viewgrid())}
           />
@@ -96,17 +114,6 @@ const Nav = () => {
               Options <DownOutlined />
             </a>
           </Dropdown>
-        </div>
-        <div
-          className="create-new-folder custom-icons-offset "
-          style={{ float: "right", marginRight: "20px" }}
-          onClick={showModal}
-        >
-          <FolderAddFilled
-            className="icon-offset"
-            style={{ fontSize: "25px", cursor: "pointer" }}
-          />
-          <span>Create Folder</span>
         </div>
       </div>
       <Modal

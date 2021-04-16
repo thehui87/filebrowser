@@ -28,7 +28,11 @@ const BreadCrumb = () => {
               key={index}
               onClick={() => dispatch(goBackCustom({ name: item, idx: index }))}
             >
-              {index == 0 ? <FolderFilled /> : <span>/</span>}
+              {index == 0 ? (
+                <FolderFilled style={{ bottom: "3px" }} />
+              ) : (
+                <span>/</span>
+              )}
               {item}
             </div>
           );

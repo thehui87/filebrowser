@@ -49,6 +49,7 @@
 
 .custom-breadcrumb {
   display: flex;
+  font-weight: 600;
 }
 .custom-breadcrumb div {
   margin-right: 15px;
@@ -73,4 +74,13 @@
 }
 .create-new-folder {
   cursor: pointer;
+}
+
+.anticon-delete {
+  color: #000;
+}
+
+.active-icon,
+.anticon-delete:hover {
+  color: #096dd9 !important;
 }

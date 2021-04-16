@@ -2,7 +2,7 @@ import React, { Component, useEffect, useState, useContext } from "react";
 import ReactDOM from "react-dom";
 import { Button, Input, Menu, Dropdown } from "antd";
 
-import { VerticalAlignTopOutlined } from "@ant-design/icons";
+import { VerticalAlignTopOutlined, EnterOutlined } from "@ant-design/icons";
 import "./style.css";
 import BreadCrumb from "../_components/BreadCrumb";
 import Nav from "../_components/Nav";
@@ -47,13 +47,24 @@ function HomePage({ history }) {
   return (
     <div className="ant-layout">
       <div style={{ display: "flex" }}>
-        <VerticalAlignTopOutlined
-          style={{ fontSize: "25px", marginRight: "10px" }}
+        <EnterOutlined
+          style={{
+            fontSize: "25px",
+            marginRight: "10px",
+            transform: "rotateZ(90deg) scaleY(-1)",
+          }}
           onClick={() => {
             dispatch(goBackward());
             getData();
           }}
         />
+        {/* <VerticalAlignTopOutlined
+          style={{ fontSize: "25px", marginRight: "10px" }}
+          onClick={() => {
+            dispatch(goBackward());
+            getData();
+          }}
+        /> */}
         <BreadCrumb />
       </div>
 
