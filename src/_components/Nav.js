@@ -16,6 +16,8 @@ const Nav = () => {
   const activeState = useSelector((state) => state.active);
   const viewType = useSelector((state) => state.view);
 
+  const [isModeEdit, setIsModeEdit] = useState(false);
+
   const inputRef = useRef(null);
 
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -39,10 +41,21 @@ const Nav = () => {
     setIsModalVisible(false);
   };
 
+  const setMode = () => {
+    if (isModeEdit) dispatch({ type: "EDITMODE" });
+    else dispatch({ type: "VIEWMODE" });
+  };
+
+  useEffect(() => {
+    setMode();
+  }, [isModeEdit]);
+
   const actionMenu = (
     <Menu>
       <Menu.Item key="0">
-        <a href="#">Action menu item</a>
+        <a href="#" onClick={() => setIsModeEdit(!isModeEdit)}>
+          {isModeEdit ? "Edit mode" : "View mode"}
+        </a>
       </Menu.Item>
     </Menu>
   );

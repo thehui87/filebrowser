@@ -6,6 +6,7 @@ import { goforward } from "../actions";
 const ListView = (props) => {
   const dispatch = useDispatch();
   let activeState = useSelector((state) => state.active);
+  let editModeState = useSelector((state) => state.actionMenu);
 
   return (
     <div className="ant-row">
@@ -33,7 +34,10 @@ const ListView = (props) => {
             <div>{item.name}</div>
 
             <DeleteFilled
-              className="icon-offset grid-icon-delete"
+              className={
+                "icon-offset grid-icon-delete " +
+                (editModeState ? "show-icon" : "hide-icon")
+              }
               style={{ height: "25px", fontSize: "25px", cursor: "pointer" }}
               type="primary"
               onClick={(e) => {

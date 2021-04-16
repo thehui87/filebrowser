@@ -7,6 +7,7 @@ import { goforward } from "../actions";
 const ListView = (props) => {
   const dispatch = useDispatch();
   let activeState = useSelector((state) => state.active);
+  let editModeState = useSelector((state) => state.actionMenu);
 
   return (
     <div>
@@ -38,7 +39,9 @@ const ListView = (props) => {
             </div>
             <div className="ant-col ant-col-xs-2 ant-col-xs-2">
               <DeleteFilled
-                className="icon-offset"
+                className={
+                  "icon-offset " + (editModeState ? "show-icon" : "hide-icon")
+                }
                 style={{ fontSize: "25px", cursor: "pointer" }}
                 onClick={(e) => {
                   e.stopPropagation();
