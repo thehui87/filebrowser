@@ -139,19 +139,23 @@ export const newFolder = (name) => {
   const state = store.getState();
   let data = state.data;
 
-  var filteredData = state.active.children.filter(function (d) {
-    return d.name == name;
-  });
-
-  if (filteredData.length == 0) {
-    state.active.children.push({
-      type: "folder",
-      name: name,
-      children: [],
-      parent: state.active.name,
+  if (name.trim() != "") {
+    var filteredData = state.active.children.filter(function (d) {
+      return d.name == name;
     });
+
+    if (filteredData.length == 0) {
+      state.active.children.push({
+        type: "folder",
+        name: name,
+        children: [],
+        parent: state.active.name,
+      });
+    } else {
+      alert("Item with similar name already exists!");
+    }
   } else {
-    alert("Item with similar name already exists!");
+    alert("Folder needs a valid name!");
   }
 
   return {

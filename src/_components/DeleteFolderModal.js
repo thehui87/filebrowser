@@ -44,7 +44,9 @@ const DeleteFolderModal = (props) => {
         onOk={handleOk}
         onCancel={handleCancel}
       >
-        <div>Are you sure you want to delete this folder?</div>
+        <div>
+          Are you sure you want to delete this item {modalVisibility.name}?
+        </div>
       </Modal>
     </>
   );
